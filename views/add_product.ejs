@@ -1,0 +1,56 @@
+<%- include('partials/header'); -%>
+
+<div class="container">
+  <%if(message != ""){ %>
+  <p class="text-center text-danger"><%=message%></p>
+  <%} %>
+
+  <form
+    style="margin-top: 50px; margin-bottom: 100px"
+    action=""
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <select id="category" name="category" class="form-control" required>
+                <option selected disabled>Choose Category</option>
+                <option>Samsung</option>
+                <option>iPhone</option>
+                <option>Galaxy</option>
+                <option>Oppo</option>
+                <option>Others</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input type="text" id="title" name="title" class="form-control" required placeholder="Tilte"></input>
+        </div>  
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <textarea cols="10" rows="3" id="description" name="description" class="form-control" required placeholder="Description"></textarea>
+        </div>  
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input type="number" id="quantity" name="quantity" class="form-control" required placeholder="Quantity"></input>
+        </div>  
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input type="number" id="price" name="price" class="form-control" required placeholder="Price"></input>
+        </div>  
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="image">Product Image:</label>
+            <input type="file" id="image" name="image" class="form-control" required placeholder="Image"></input>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>
