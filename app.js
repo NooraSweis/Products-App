@@ -15,10 +15,27 @@ app.use(fileUpload());
 
 // Configure routes for products app:
 const { mainPage } = require("./routes/index");
-const { addProductPage } = require("./routes/product");
+const { addProductPage, addProduct } = require("./routes/product");
 
 app.get("/", mainPage);
 app.get("/add", addProductPage);
+app.post("/add", addProduct);
+
+// create connection to database
+const db = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "products"
+});
+db.connect((err) => {
+    if (err) {
+        console.log("No connection");
+    } else {
+        console.log("Connection Succeeded");
+    }
+});
+global.db = db;
 
 app.listen(port, () => {
     console.log(`Server is running on: http://localhost:${port}`);
