@@ -25,7 +25,7 @@ app.post("/add", addProduct);
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "root",
     database: "products"
 });
 db.connect((err) => {
